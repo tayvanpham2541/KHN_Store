@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Honey Store</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">🍯 Honey Store</div>
+            <nav class="sidebar-nav">
+                <a href="/admin">Dashboard</a>
+                <a href="/admin">Products</a>
+                <a href="#">Orders</a>
+            </nav>
+        </aside>
+
+        <!-- Khu vực bên phải -->
+        <div class="dashboard-content">
+            <!-- Header -->
+            <header class="header">
+                <h2>Dashboard</h2>
+                <div class="header-user">
+                    <button id="logout-button"> Đăng Xuất </button>
+                </div>
+            </header>
+
+            <!-- Main -->
+            <main class="dashboard-main">
+                <div class="main-header">
+                    <h1>Quản lý sản phẩm</h1>
+                    <a href="/admin/add-product" class="btn-add">
+                        Thêm sản phẩm
+                    </a>
+                </div>
+                <div class="admin-toolbar">
+                    <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm ..." />
+                    <button id="search-button">Tìm kiếm</button>
+                </div>
+
+                <!-- Danh sách sản phẩm -->
+                <div id="loading" class="loading hidden"> ⏳ Đang tìm kiếm...</div>
+                <div id="error-message" class="error-message hidden"></div>
+                <div id="error-data-message" class="error-data-message hidden"></div>
+                <div id="admin-product-list"></div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="footer">Honey Store - 2026</footer>
+        </div>
+    </div>
+
+
+
+
+    <script src="/js/admin/dashboard.js"></script>
+</body>
+
+</html>

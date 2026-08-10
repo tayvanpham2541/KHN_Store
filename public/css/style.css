@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-links a:hover {
+  color: orange;
+}
+
+.hero {
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  color: #fff;
+  background-color: #d97706;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+}
+
+.hero-button:hover {
+  background-color: #b45309;
+}
+
+.product-card {
+  border: 1px solid #b33f3fdd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  background-color: rgb(216, 215, 212);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.product-detail-button {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.product-detail-button:hover {
+  background-color: rgb(213, 226, 200);
+}
+
+.product-info {
+  padding: 16px;
+}
+
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  #product-list {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 400px;
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .product-image {
+    height: 220px;
+  }
+
+  #product-list {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+}
+
+/* //add-product */
+.add-product-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+}
+
+.add-product-container h1 {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.add-product-button,
+.edit-product-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-product-button:hover,
+.edit-product-button:hover {
+  background-color: rgb(213, 226, 200);
+  border: 1px solid #000000;
+}
+
+.back-admin {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.error-message {
+  margin: 5px;
+  font-size: 16px;
+  color: red;
+}
+
+.loading {
+  margin: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* CSS lỗi */
+.form-group input.input-error {
+  border: 2px solid red;
+}
+
+/* Base Footer Styles */
+.site-footer {
+  background-color: #fff;
+  color: #000000;
+  padding: 40px 20px 20px 20px;
+  font-family: sans-serif;
+}
+
+/* Flexbox Container for Columns */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+/* Individual Columns */
+.footer-column {
+  flex: 1;
+}
+
+.footer-column h3 {
+  color: #000000;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.footer-column p {
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Footer Links List */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: orange;
+}
+
+/* Bottom Bar Styles */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  font-size: 0.85rem;
+}
+
+

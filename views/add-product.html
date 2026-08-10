@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-Product</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="add-product-container">
+        <h1>Thêm sản phẩm</h1>
+
+        <form id="add-product-form">
+
+            <div class="form-group">
+                <label for="name">Tên sản phẩm</label>
+                <input type="text" id="name" name="name" placeholder="Nhập tên sản phẩm">
+                <p id="name-error" class="error-message"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Giá</label>
+                <input type="number" id="price" name="price" placeholder="Nhập giá sản phẩm">
+                <p id="price-error" class="error-message"></p>
+
+            </div>
+
+            <div class="form-group">
+                <label for="image">Hình ảnh</label>
+                <input type="text" id="image" name="image" placeholder="Nhập tên hình ảnh">
+                <p id="image" class="error-message"></p>
+
+            </div>
+
+            <div class="form-group">
+                <label for="description">Mô tả</label>
+                <textarea id="description" name="description" placeholder="Nhập mô tả sản phẩm"></textarea>
+                <p id="description-error" class="error-message"></p>
+
+            </div>
+
+            <button type="submit" class="add-product-button">
+                Thêm sản phẩm
+            </button>
+        </form>
+        <a href="/admin" class="back-admin"> ← Quay lại Admin </a>
+    </div>
+
+    <script src="/js/admin/add-product.js"></script>
+</body>
+
+</html>
