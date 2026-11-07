@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="vi">
 
 <head>
@@ -9,56 +10,214 @@
 </head>
 
 <body>
+
     <div class="dashboard-layout">
+
+        <!-- Overlay mobile -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-logo">🍯 Honey Store</div>
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-top">
+
+                <div class="sidebar-logo">
+                    <span class="logo-icon">🍯</span>
+                    <span>Honey Store</span>
+                </div>
+
+                <button class="sidebar-close" id="sidebar-close" aria-label="Đóng menu">
+                    ×
+                </button>
+
+            </div>
+
             <nav class="sidebar-nav">
-                <a href="/admin">Dashboard</a>
-                <a href="/admin">Products</a>
-                <a href="#">Orders</a>
+
+                <a href="/admin" id="dashboard-link" class="sidebar-link active">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="/admin" id="products-link" class="sidebar-link">
+                    <span class="nav-icon">📦</span>
+                    <span>Sản phẩm</span>
+                </a>
+
+                <a href="#" id="featured-filter-button" class="sidebar-link">
+                    <span class="nav-icon">⭐</span>
+                    <span>Nổi bật</span>
+                </a>
+
             </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="/" class="sidebar-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>Trang sản phẩm</span>
+                </a>
+
+                <button id="sidebar-logout-button" class="sidebar-link sidebar-logout">
+                    <span class="nav-icon">🚪</span>
+                    <span>Đăng xuất</span>
+                </button>
+
+            </div>
+
         </aside>
+
 
         <!-- Khu vực bên phải -->
         <div class="dashboard-content">
             <!-- Header -->
             <header class="header">
-                <h2>Dashboard</h2>
+                <div class="header-left">
+                    <button class="hamburger-button" id="hamburger-button" aria-label="Mở menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <div>
+                        <span class="header-label">HONEY STORE</span>
+                        <h2>Dashboard</h2>
+                    </div>
+                </div>
+
                 <div class="header-user">
-                    <button id="logout-button"> Đăng Xuất </button>
+                    <div class="admin-info">
+                        <span class="admin-avatar">A</span>
+                        <span class="admin-name">Admin</span>
+                    </div>
+
+                    <button id="logout-button" class="Btn">
+                        <div class="sign">
+                            <svg viewBox="0 0 512 512">
+                                <path
+                                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <div class="text">Đăng xuất</div>
+                    </button>
                 </div>
             </header>
 
             <!-- Main -->
             <main class="dashboard-main">
-                <div class="main-header">
-                    <h1>Quản lý sản phẩm</h1>
-                    <a href="/admin/add-product" class="btn-add">
-                        Thêm sản phẩm
-                    </a>
-                </div>
-                <div class="admin-toolbar">
-                    <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm ..." />
-                    <button id="search-button">Tìm kiếm</button>
-                </div>
 
-                <!-- Danh sách sản phẩm -->
-                <div id="loading" class="loading hidden"> ⏳ Đang tìm kiếm...</div>
-                <div id="error-message" class="error-message hidden"></div>
-                <div id="error-data-message" class="error-data-message hidden"></div>
-                <div id="admin-product-list"></div>
+                <!-- Tổng quan -->
+                <section class="overview-section">
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-eyebrow">QUẢN TRỊ</span>
+                            <h1>Tổng quan</h1>
+                        </div>
+                    </div>
+
+                    <div class="overview-cards">
+                        <div class="overview-card">
+                            <div class="overview-icon product-icon">
+                                📦
+                            </div>
+
+                            <div class="overview-info">
+                                <span>Sản phẩm</span>
+                                <strong id="product-count">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon featured-icon">
+                                ⭐
+                            </div>
+
+                            <div class="overview-info">
+                                <span>Sản phẩm nổi bật</span>
+                                <strong id="featured-count">—</strong>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quản lý sản phẩm -->
+                <section class="products-section">
+
+                    <div class="main-header">
+
+                        <div>
+                            <span class="section-eyebrow">PRODUCTS</span>
+                            <h1>Quản lý sản phẩm</h1>
+                        </div>
+
+                        <a href="/admin/add-product" class="btn-add">
+                            <span>+</span>
+                            Thêm sản phẩm
+                        </a>
+
+                    </div>
+
+
+                    <!-- Search -->
+                    <div class="admin-toolbar">
+
+                        <div class="search-wrapper">
+
+                            <span class="search-icon">⌕</span>
+
+                            <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
+
+                        </div>
+
+                        <button id="search-button">
+                            Tìm kiếm
+                        </button>
+
+                    </div>
+
+
+                    <!-- Loading -->
+                    <div id="loading" class="loading hidden">
+                        <span class="loading-spinner"></span>
+                        <span>Đang tải sản phẩm...</span>
+                    </div>
+
+
+                    <!-- Error -->
+                    <div id="error-message" class="error-message hidden"></div>
+
+                    <div id="error-data-message" class="error-data-message hidden"></div>
+
+
+                    <!-- Danh sách sản phẩm -->
+                    <div id="admin-product-list"></div>
+                    <div class="load-more-container">
+                        <button id="load-more-button" class="load-more-button">
+                            Xem thêm
+                        </button>
+                    </div>
+                </section>
+
             </main>
 
+
             <!-- Footer -->
-            <footer class="footer">Honey Store - 2026</footer>
+            <footer class="footer">
+                <span>🍯</span>
+                Honey Store
+                <span>•</span>
+                2026
+            </footer>
+
         </div>
+
     </div>
 
 
-
-
     <script src="/js/admin/dashboard.js"></script>
+
 </body>
 
 </html>

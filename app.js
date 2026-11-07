@@ -4,7 +4,7 @@ const helmet = require("helmet")
 const cors = require("cors")
 const app = express();
 
-
+app.set("trust proxy", 1);
 // const port = 3000;
 const PORT = process.env.PORT || 3000;
 const indexRouter = require("./routes/index");
@@ -17,24 +17,36 @@ const loggerMiddleware = require("./middlewares/loggerMiddleware");
 const csrfMiddleware = require("./middlewares/csrfMiddleware")
 
 app.use(loggerMiddleware);
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      imgSrc: [
+        "'self'",
+        "data:",
+        "https://res.cloudinary.com",
+        "blob:"
+      ]
+    }
+  }
+})
+);
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true
+  origin: process.env.CORS_ORIGIN,
+  credentials: true
 }));
 app.use(express.static("public"));
 app.use(express.json());
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
 
-    cookie:{
-      httpOnly:true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite:"lax",
-      maxAge: 1000 * 60 * 60
-    }
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 1000 * 60 * 60
+  }
 }));
 app.use(csrfMiddleware);
 app.use("/", csrfRouter);

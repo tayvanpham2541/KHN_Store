@@ -9,32 +9,22 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                🍯 Honey Store
-            </div>
-            <div class="nav-links">
-                <a href="/">Trang chủ</a>
-                <a href="#products">Sản phẩm</a>
-                <a href="#about">Giới thiệu</a>
-                <a href="#contact">Liên hệ</a>
-                <a href="/login">Đăng nhập</a>
-            </div>
-        </nav>
-    </header>
-
     <main>
-        <section class="hero">
+        <section id="home" class="hero">
             <div class="hero-content">
+                <span class="hero-label">
+                    KHN
+                </span>
+
                 <h1>
                     Mật Ong Nguyên Chất
-                    Từ Thiên nhiên
+                    <br>
+                    Từ Thiên Nhiên
                 </h1>
 
                 <p>
                     Tinh hoa từ thiên nhiên,
-                    chất lượng cho sức khỏe gia đình
+                    chất lượng cho sức khỏe gia đình.
                 </p>
 
                 <a href="#products" class="hero-button">
@@ -43,48 +33,286 @@
             </div>
         </section>
 
-        <section id="products">
-            <h2>Sản phẩm của chúng tôi</h2>
-            <div id="product-list"></div>
+        <section class="values-section">
+            <div class="section-container">
+                <div class="section-heading center">
+                    <span class="section-label">
+                        GIÁ TRỊ KHN
+                    </span>
+
+                    <h2>
+                        Vì sao chọn KHN?
+                    </h2>
+
+                    <p>
+                        Chúng tôi luôn hướng đến những sản phẩm
+                        chất lượng và trải nghiệm tốt cho khách hàng.
+                    </p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            🍯
+                        </div>
+
+                        <h3>
+                            Tự nhiên
+                        </h3>
+
+                        <p>
+                            Sản phẩm được lựa chọn với tiêu chí
+                            gần gũi và chất lượng từ thiên nhiên.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Chất lượng
+                        </h3>
+
+                        <p>
+                            Luôn chú trọng chất lượng sản phẩm
+                            trước khi đến tay khách hàng.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            ♥
+                        </div>
+                        <h3>
+                            Tận tâm
+                        </h3>
+                        <p>
+                            Luôn lắng nghe và đồng hành cùng
+                            khách hàng trong quá trình sử dụng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured" class="featured-section">
+            <div class="section-container">
+                <div class="section-heading center">
+                    <span class="section-label">ĐƯỢC LỰA CHỌN</span>
+
+                    <h2>Sản phẩm nổi bật</h2>
+
+                    <p>
+                        Một số sản phẩm được KHN
+                        giới thiệu đến bạn.
+                    </p>
+                </div>
+
+                <!-- Featured Carousel -->
+                <div class="featured-carousel">
+                    <!-- Nút Previous -->
+                    <button type="button" class="carousel-button carousel-prev" id="featured-prev"
+                        aria-label="Sản phẩm trước">
+                        ←
+                    </button>
+
+                    <!-- Vùng hiển thị Carousel -->
+                    <div class="featured-carousel-viewport">
+                        <!-- Giữ nguyên ID và class hiện tại -->
+                        <div id="featured-product-list"></div>
+                    </div>
+
+                    <!-- Nút Next -->
+                    <button type="button" class="carousel-button carousel-next" id="featured-next"
+                        aria-label="Sản phẩm tiếp theo">
+                        →
+                    </button>
+                </div>
+                <!-- Dots -->
+                <div id="featured-dots" class="featured-dots" aria-label="Điều hướng sản phẩm nổi bật"></div>
+
+                <!-- Loading -->
+                <div id="featured-loading" class="loading hidden">
+                    ⏳ Đang tải sản phẩm...
+                </div>                
+                <!-- Error -->
+                <div id="featured-error" class="error-message hidden"></div>
+            </div>
+        </section>
+
+        <section id="products" class="products-section">
+            <div class="section-container">
+                <div class="section-heading center">
+                    <span class="section-label">
+                        KHN
+                    </span>
+                    <h2>
+                        Sản phẩm của chúng tôi
+                    </h2>
+                    <p>
+                        Khám phá các sản phẩm hiện có
+                        tại KHN.
+                    </p>
+                </div>
+
+                <div class="search-toolbar">
+                    <input type="text" id="user-search-input" placeholder="Tìm kiếm sản phẩm ..." />
+                    <button id="user-search-button">
+                        Tìm kiếm
+                    </button>
+                </div>
+                <div id="loading" class="loading hidden">
+                    ⏳ Đang tìm kiếm...
+                </div>
+                <div id="error-message" class="error-message hidden"></div>
+                <div id="error-data-message" class="error-data-message hidden"></div>
+                <div id="product-list"></div>
+                <div class="load-more-container">
+                    <button id="load-more-button" class="load-more-button">
+                        Xem thêm
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About KHN -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="/images/background.jpg" alt="KHN - Mật ong tự nhiên">
+                    </div>
+
+                    <div class="about-content">
+                        <span class="section-label">
+                            VỀ KHN
+                        </span>
+                        <h2>
+                            Từ thiên nhiên
+                            đến sự an tâm
+                        </h2>
+                        <p>
+                            KHN hướng đến việc mang đến
+                            những sản phẩm chất lượng, gần gũi
+                            với thiên nhiên và phù hợp với nhu cầu
+                            của gia đình Việt.
+                        </p>
+                        <p>
+                            Chúng tôi luôn đặt chất lượng sản phẩm
+                            và sự hài lòng của khách hàng lên hàng đầu.
+                        </p>
+                        <div class="about-points">
+                            <div class="about-point">
+                                <span>✓</span>
+                                <div>
+                                    <strong>
+                                        Sản phẩm chất lượng
+                                    </strong>
+                                    <p>
+                                        Chú trọng chất lượng
+                                        trong từng sản phẩm.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="about-point">
+                                <span>✓</span>
+                                <div>
+                                    <strong>
+                                        Thông tin rõ ràng
+                                    </strong>
+                                    <p>
+                                        Thông tin sản phẩm
+                                        được cung cấp minh bạch.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="about-point">
+                                <span>✓</span>
+                                <div>
+                                    <strong>
+                                        Tận tâm phục vụ
+                                    </strong>
+
+                                    <p>
+                                        Luôn đồng hành cùng
+                                        khách hàng.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <div class="contact-box">
+                    <div>
+                        <span class="section-label">LIÊN HỆ</span>
+                        <h2>Bạn cần tư vấn?</h2>
+                        <p>
+                            Liên hệ với KHN để được
+                            hỗ trợ và tư vấn sản phẩm.
+                        </p>
+                    </div>
+
+                    <div class="contact-details">
+                        <a href="tel:0949829408">
+                            📞 0949 829 408
+                        </a>
+                        <a href="mailto:info@khanhhoi.com">
+                            ✉️ info@khanhhoi.com
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-container">
-
             <!-- Column 1: About -->
             <div class="footer-column">
                 <h3>Về chúng tôi</h3>
                 <p>Cơ sở uy tín tạo chất lượng.</p>
             </div>
-
             <!-- Column 2: Quick Links -->
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a href="#home"> Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#featured">Sản phẩm</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Liên hệ</a>
+                    </li>
                 </ul>
             </div>
-
-            <!-- Column 3: Contact & Social -->
+            <!-- Column 3: Contact -->
             <div class="footer-column">
                 <h3>Liên hệ</h3>
                 <p>Email: info@khanhhoi.com</p>
                 <p>Phone: 0949829408</p>
             </div>
-
         </div>
 
-        <!-- Bottom Bar -->
         <div class="footer-bottom">
-            <p>&copy; 2026 YourCompany. All rights reserved.</p>
+            <p>&copy; 2026 KHN. All rights reserved</p>
         </div>
     </footer>
-
-
 
     <script src="/js/app.js"></script>
 </body>

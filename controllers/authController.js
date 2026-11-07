@@ -1,11 +1,16 @@
 const userModel = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
-
-async function login(req, res) {
+async function login(req, res, next) {
     try {
         //Lấy dữ liẹu
         const { username, password } = req.body;
+
+        if (!username || !password) {
+            const error = new Error("Tên đăng nhập và mật khẩu không được để trống");
+            error.statusCode = 400;
+            return next(error);
+        }
         //Tìm user
         const users = await userModel.findByUsername(username);
 
@@ -30,6 +35,7 @@ async function login(req, res) {
         })
     } catch (error) {
         console.error(error)
+        next(error);
     }
 }
 

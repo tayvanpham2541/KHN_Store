@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: #f8f4ec;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   LOGIN FORM
+========================= */
+
+#login-form {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 40px;
+
+    background: #ffffff;
+
+    border: 1px solid #eadfce;
+    border-radius: 16px;
+
+    box-shadow: 0 10px 35px rgba(70, 45, 20, 0.10);
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-brand span {
+    display: block;
+
+    color: #b7791f;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.login-brand h1 {
+    margin: 0 0 8px;
+
+    color: #3f2a1d;
+
+    font-size: 30px;
+}
+
+.login-brand p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.login-field {
+    margin-bottom: 20px;
+}
+
+.login-field label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #3f2a1d;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.login-field input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d8cec0;
+    border-radius: 8px;
+
+    background: #fff;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-field input:focus {
+    border-color: #d97706;
+
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.12);
+}
+
+/* =========================
+   ERROR
+========================= */
+
+#error-message {
+    min-height: 20px;
+
+    margin: 5px 0 15px;
+
+    color: #dc2626;
+
+    font-size: 14px;
+    text-align: center;
+}
+
+#login-form button[type="submit"] {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #d97706;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#login-form button[type="submit"]:hover {
+    background: #b45309;
+}
+
+#login-form button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Password */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 45px;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: #333;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    #login-form {
+        padding: 30px 22px;
+        border-radius: 12px;
+    }
+
+    .login-brand h1 {
+        font-size: 26px;
+    }
+}
